@@ -2,15 +2,20 @@
   "name": "gridsome-plugin-pwa",
   "version": "0.0.1",
   "description": "PWA plugin for Gridsome",
-  "main": "src/index.js",
+  "main": "index.js",
   "author": "rishabh3112",
   "license": "MIT",
   "scripts": {
-    "build": "babel src -d lib"
+    "build": "babel src -d ./"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4"
+  },
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "register-service-worker": "^1.6.2",
+    "workbox-build": "^4.3.1"
   }
 }
