@@ -3,3 +3,7 @@ node_modules/
 
 # Library folder
 lib/
+
+files
+gridsome.client.js
+index.js
