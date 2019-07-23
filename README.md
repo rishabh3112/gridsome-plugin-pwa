@@ -30,4 +30,4 @@ plugins:[
 ```
 
 ## License (MIT)
-Open (LICENSE)[./LICENSE] file for more info 
+Open [LICENSE](./LICENSE) file for more info 
