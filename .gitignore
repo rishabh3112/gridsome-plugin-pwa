@@ -4,6 +4,10 @@ node_modules/
 # Library folder
 lib/
 
+# VS Code configurations
+.vscode/
+
+# Built files
 files
 gridsome.client.js
 index.js
