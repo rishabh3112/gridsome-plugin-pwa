@@ -1,6 +1,7 @@
-import { register } from 'register-service-worker'
+const { register } = require('register-service-worker');
 
-export default function (Vue, options, { head, isClient }) {
+const clientConfig = function (Vue, options, context) {
+  let {head, isClient} = context;
   if (process.env.NODE_ENV === 'production' && isClient) {
     register(options.serviceWorkerPath, {
       ready () {
@@ -62,3 +63,5 @@ export default function (Vue, options, { head, isClient }) {
     content: options.msTileColor
   })
 }
+
+export default clientConfig;

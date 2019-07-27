@@ -9,5 +9,4 @@ lib/
 
 # Built files
 files
-gridsome.client.js
 index.js

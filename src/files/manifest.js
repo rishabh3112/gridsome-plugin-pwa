@@ -2,7 +2,7 @@ import path from 'path'
 import sizeOf from 'image-size'
 import fs from 'fs-extra'
 
-export const createManifest = async (context, config, queue) => {
+export const createManifest = async (context, config, queue, options) => {
     const manifestDest = path.join(config.outDir, options.manifestPath)
     const iconsDir = path.join(config.outDir, 'assets/static/');
 

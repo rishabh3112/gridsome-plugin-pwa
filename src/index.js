@@ -9,11 +9,11 @@ function Plugin (api, options) {
     log('Scaffolding PWA assets\n');
     
     log(` - ${options.manifestPath}..`);
-    await createManifest(context, config, queue);
+    await createManifest(context, config, queue, options);
     log('..done\n');
 
     log(` - ${options.serviceWorkerPath}..`);
-    await createServiceWorker(context, config, queue);
+    await createServiceWorker(context, config, queue, options);
     log('..done\n');
   })
   api.setClientOptions({
