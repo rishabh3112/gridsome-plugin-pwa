@@ -32,6 +32,7 @@ Plugin.defaultOptions = () => ({
   statusBarStyle: 'default',
   manifestPath: 'manifest.json',
   serviceWorkerPath: 'service-worker.js',
+  cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg',
   shortName: 'Gridsome',
   themeColor: '#666600',
   backgroundColor: '#ffffff',

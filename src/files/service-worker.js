@@ -14,8 +14,8 @@ export const createServiceWorker = async (context, config, queue, options) => {
     await generateSW({
       swDest: serviceWorkerPath,
       globDirectory: config.outDir,
-      globPatterns: ['**\/*.{js,json,css,html,png,jpg,jpeg,svg}'],
-      globIgnores: [options.serviceWorkerPath],
+      globPatterns: [`**\/*.{${options.cachedFileTypes}}`, "**\/*.json"],
+      globIgnores: [options.serviceWorkerPath, '**\/*client.json'],
       templatedUrls: queue.reduce((urls, page) => {
         const url = page.path.substring(1)
         const file = path.relative(config.outDir, page.htmlOutput)
