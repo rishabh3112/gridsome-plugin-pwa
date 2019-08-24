@@ -15,7 +15,7 @@ export const createServiceWorker = async (context, config, queue, options) => {
       swDest: serviceWorkerPath,
       globDirectory: config.outDir,
       globPatterns: [`**\/*.{${options.cachedFileTypes}}`, "**\/*.json"],
-      globIgnores: [options.serviceWorkerPath, '**\/*client.json'],
+      globIgnores: [options.serviceWorkerPath, '**\/*client.json', '**\/*server.json'],
       templatedUrls: queue.reduce((urls, page) => {
         const url = page.path.substring(1)
         const file = path.relative(config.outDir, page.htmlOutput)
