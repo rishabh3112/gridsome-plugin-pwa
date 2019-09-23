@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src -d ./",
-    "test":""
+    "test": "echo \"tests not created\""
   },
   "keywords": [
     "gridsome-plugin"
