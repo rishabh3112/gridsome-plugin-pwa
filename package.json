@@ -6,7 +6,8 @@
   "author": "rishabh3112",
   "license": "MIT",
   "scripts": {
-    "build": "babel src -d ./"
+    "build": "babel src -d ./",
+    "test":""
   },
   "keywords": [
     "gridsome-plugin"
