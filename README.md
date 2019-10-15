@@ -3,6 +3,14 @@
 <h1>PWA plugin for Gridsome</h1>
 </center>
 
+## Installation
+```
+# For npm
+$ npm install gridsome-plugin-pwa
+# For yarn
+$ yarn add gridsome-plugin-pwa
+```
+
 ## Usage
 Add `gridsome-plugin-pwa` to plugin array with following configurable options to `gridsome.config.js`
 
