@@ -1,8 +1,8 @@
 <p align="center">
     <img src="https://gridsome.org/logos/logo-circle-light.svg" alt="gridsome logo" width="100px"/>
-    <h1>gridsome-plugin-pwa</h1>
-    <p> A PWA plugin for gridsome </p>
-    <img alt="npm" src="https://img.shields.io/npm/dt/gridsome-plugin-pwa">
+    <h1 align="center">gridsome-plugin-pwa</h1>
+    <p align="center"> A PWA plugin for gridsome </p>
+    <p align="center"><img alt="npm" src="https://img.shields.io/npm/dt/gridsome-plugin-pwa"></p>
 </p>
 
 
