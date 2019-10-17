@@ -5,13 +5,12 @@ import fs from 'fs-extra'
 export const createManifest = async (context, config, queue, options) => {
     const manifestDest = path.join(config.outDir, options.manifestPath)
     const iconsDir = path.join(config.outDir, 'assets/static/');
-
+    const iconName = option.icon.split('/').slice(-1)[0];
     // Copy Favicon from options.icon to assets/static
-    fs.copyFileSync(path.resolve(context, options.icon), iconsDir + 'favicon.png');
+    fs.copyFileSync(path.resolve(context, options.icon), path.join(iconsDir, iconName));
 
-    const iconsNames = fs.readdirSync(iconsDir).map((image) => {
-        return path.join('assets/static/',image);
-    });
+    //TODO: generate all size images from options.icon
+    const iconsNames = [iconName]
     const icons = iconsNames.map((icon) => {
         let iconData =  sizeOf(path.resolve(config.outDir, icon));
         iconData.src = icon;
