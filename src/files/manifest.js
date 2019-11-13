@@ -3,16 +3,16 @@ import sizeOf from 'image-size'
 import fs from 'fs-extra'
 
 export const createManifest = async (context, config, queue, options) => {
-    const manifestDest = path.join(config.outDir, options.manifestPath)
-    const iconsDir = path.join(config.outDir, 'assets/static/');
+    const manifestDest = path.join(config.outputDir, options.manifestPath)
+    const iconsDir = path.join(config.outputDir, 'assets/static/');
     const iconName = options.icon.split('/').slice(-1)[0];
     // Copy Favicon from options.icon to assets/static
     fs.copyFileSync(path.resolve(context, options.icon), path.join(iconsDir, iconName));
 
     //TODO: generate all size images from options.icon
-    const iconsNames = [path.relative(config.outDir, path.join(iconsDir, iconName))]
+    const iconsNames = [path.relative(config.outputDir, path.join(iconsDir, iconName))]
     const icons = iconsNames.map((icon) => {
-        let iconData =  sizeOf(path.resolve(config.outDir, icon));
+        let iconData =  sizeOf(path.resolve(config.outputDir, icon));
         iconData.src = icon;
         return iconData;
     });
