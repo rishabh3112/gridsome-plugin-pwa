@@ -29,5 +29,5 @@ export const createManifest = async (context, config, queue, options) => {
             sizes: `${set.width}x${set.height}`,
             type: 'image/'+set.type,
         }))
-    }, null, 2))
+    }, null, 2));
 }

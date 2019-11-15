@@ -31,10 +31,13 @@ plugins:[
             statusBarStyle: 'default',
             manifestPath: 'manifest.json',
             serviceWorkerPath: 'service-worker.js',
+            cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg',
             shortName: 'Gridsome',
             themeColor: '#666600',
             backgroundColor: '#ffffff',
-            icon: '' // must be supplied!
+            icon: '', // must be provided
+            msTileImage: '',
+            msTileColor: '#666600'
         }
     }
 ]

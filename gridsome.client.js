@@ -53,10 +53,12 @@ const clientConfig = function (Vue, options, context) {
     content: options.title
   })
 
-  head.meta.push({
-    name: 'msapplication-TileImage',
-    content: options.msTileImage
-  })
+  if (options.msTileImage) {
+    head.meta.push({
+      name: 'msapplication-TileImage',
+      content: options.msTileImage
+    })
+  }
 
   head.meta.push({
     name: 'msapplication-TileColor',

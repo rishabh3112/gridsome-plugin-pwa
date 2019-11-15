@@ -24,7 +24,7 @@ function Plugin (api, options) {
     themeColor: options.themeColor
   })
 }
-
+  
 Plugin.defaultOptions = () => ({
   title: 'Gridsome',
   startUrl: '/',
@@ -36,7 +36,9 @@ Plugin.defaultOptions = () => ({
   shortName: 'Gridsome',
   themeColor: '#666600',
   backgroundColor: '#ffffff',
-  icon: ''
+  icon: '',
+  msTileImage: '',
+  msTileColor: '#666600'
 })
 
 module.exports = Plugin
