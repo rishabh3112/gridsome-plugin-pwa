@@ -5,7 +5,10 @@
   "main": "index.js",
   "author": "rishabh3112",
   "license": "MIT",
-  "repository": "https://github.com/rishabh3112/gridsome-plugin-pwa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rishabh3112/gridsome-plugin-pwa"
+  },
   "scripts": {
     "build": "babel src -d ./",
     "test": "echo \"tests not created\""
