@@ -35,7 +35,7 @@ plugins:[
             shortName: 'Gridsome',
             themeColor: '#666600',
             backgroundColor: '#ffffff',
-            icon: '', // must be provided
+            icon: '', // must be provided like 'src/favicon.png'
             msTileImage: '',
             msTileColor: '#666600'
         }
