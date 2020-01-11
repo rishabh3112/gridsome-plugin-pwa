@@ -13,8 +13,9 @@ function Plugin (api, options) {
     log('..done\n');
 
     log(` - ${options.serviceWorkerPath}..`);
-    await createServiceWorker(context, config, queue, options);
-    log('..done\n');
+    const response = await createServiceWorker(context, config, queue, options);
+    if (response) log('..done\n');
+    else log('..skipped\n');
   })
   api.setClientOptions({
     title: options.title,
@@ -31,6 +32,7 @@ Plugin.defaultOptions = () => ({
   display: 'standalone',
   statusBarStyle: 'default',
   manifestPath: 'manifest.json',
+  disableServiceWorker: true,
   serviceWorkerPath: 'service-worker.js',
   cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg',
   shortName: 'Gridsome',

@@ -10,6 +10,7 @@ const appendToServiceWorker = async (config, options) => {
 }
 
 export const createServiceWorker = async (context, config, queue, options) => {
+    if (options.disableServiceWorker) return false;
     const serviceWorkerPath = path.join(config.outputDir, options.serviceWorkerPath)
   
     await generateSW({
@@ -26,4 +27,5 @@ export const createServiceWorker = async (context, config, queue, options) => {
     })
 
     await appendToServiceWorker(config, options);
+    return true;
 }
