@@ -17,10 +17,13 @@ function Plugin (api, options) {
     if (response) log('..done\n');
     else log('..skipped\n');
   })
+
+  const pathPrefix = api._app.config.pathPrefix ? api._app.config.pathPrefix + '/' : '/';
+
   api.setClientOptions({
     title: options.title,
-    serviceWorkerPath: path.join('/', options.serviceWorkerPath),
-    manifestPath: path.join('/', options.manifestPath),
+    serviceWorkerPath: path.join(pathPrefix, options.serviceWorkerPath),
+    manifestPath: path.join(pathPrefix, options.manifestPath),
     statusBarStyle: options.statusBarStyle,
     themeColor: options.themeColor
   })

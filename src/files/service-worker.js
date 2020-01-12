@@ -14,6 +14,7 @@ export const createServiceWorker = async (context, config, queue, options) => {
     const serviceWorkerPath = path.join(config.outputDir, options.serviceWorkerPath)
   
     await generateSW({
+      modifyURLPrefix: { '' : config.pathPrefix + '/' || ''},
       swDest: serviceWorkerPath,
       globDirectory: config.outputDir,
       globPatterns: [`**\/*.{${options.cachedFileTypes}}`, "**\/*.json"],
