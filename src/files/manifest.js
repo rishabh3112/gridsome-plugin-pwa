@@ -1,21 +1,26 @@
 import path from 'path'
-import sizeOf from 'image-size'
 import fs from 'fs-extra'
+import sharp from 'sharp'
+import rename from 'rename'
 
 export const createManifest = async (context, config, queue, options) => {
-    const manifestDest = path.join(config.outputDir, options.manifestPath)
+    const manifestDest = path.join(config.outputDir, options.manifestPath);
     const iconsDir = path.join(config.outputDir, 'assets/static/');
     const iconName = options.icon.split('/').slice(-1)[0];
-    // Copy Favicon from options.icon to assets/static
-    fs.copyFileSync(path.resolve(context, options.icon), path.join(iconsDir, iconName));
 
-    //TODO: generate all size images from options.icon
-    const iconsNames = [path.relative(config.outputDir, path.join(iconsDir, iconName))]
-    const icons = iconsNames.map((icon) => {
-        let iconData =  sizeOf(path.resolve(config.outputDir, icon));
-        iconData.src = icon;
-        return iconData;
-    });
+    // Generate all size images from options.icon
+    const sizes = [512, 384, 192, 180, 152, 144, 128, 120, 96, 72, 48, 16];
+    const iconDir = path.relative(config.outputDir, iconsDir);
+
+    const icons = [];
+    await Promise.all(sizes.map((size) => {
+        const imagePath = path.join(iconsDir, rename(iconName, { suffix: '-' + size}))
+        const src = path.relative(config.outputDir, imagePath);
+        const type = 'image/' + iconName.split('.').slice(-1)[0];
+        const sizes = `${size}x${size}`;
+        icons.push({ src, type, sizes });
+        return sharp(options.icon).resize(size, size).toFile(imagePath);
+    }));
 
     await fs.outputFile(manifestDest, JSON.stringify({
         name: options.title,
@@ -24,10 +29,6 @@ export const createManifest = async (context, config, queue, options) => {
         display: options.display,
         theme_color: options.themeColor,
         background_color: options.backgroundColor,
-        icons: icons.map(set => ({
-            src: set.src,
-            sizes: `${set.width}x${set.height}`,
-            type: 'image/'+set.type,
-        }))
+        icons
     }, null, 2));
 }
