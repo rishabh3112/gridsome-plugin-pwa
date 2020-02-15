@@ -9,7 +9,7 @@ export const createManifest = async (context, config, queue, options) => {
     const iconName = options.icon.split('/').slice(-1)[0];
 
     // Generate all size images from options.icon
-    const sizes = [512, 384, 192, 180, 152, 144, 128, 120, 96, 72, 48, 16]; // see https://stackoverflow.com/q/48839338/601466
+    const sizes = [512, 384, 192, 180, 152, 144, 128, 120, 96, 72, 48, 16];
     const iconDir = path.relative(config.outputDir, iconsDir);
 
     const icons = [];
