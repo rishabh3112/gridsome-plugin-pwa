@@ -1,6 +1,6 @@
 {
   "name": "gridsome-plugin-pwa",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "PWA plugin for Gridsome",
   "main": "index.js",
   "author": "rishabh3112",
