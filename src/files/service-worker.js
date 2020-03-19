@@ -22,7 +22,7 @@ export const createServiceWorker = async (context, config, queue, options) => {
       templatedUrls: queue.reduce((urls, page) => {
         const url = page.path.substring(1)
         const file = path.relative(config.outputDir, page.htmlOutput)
-        if (url) urls[url] = file
+        if (url && url.indexOf('/:') === -1) urls[url] = file
         return urls
       }, {})
     })
