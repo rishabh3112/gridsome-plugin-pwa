@@ -22,6 +22,7 @@ export const createServiceWorker = async (context, config, queue, options) => {
       templatedUrls: queue.reduce((urls, page) => {
         const url = page.path.substring(1)
         const file = path.relative(config.outputDir, page.htmlOutput)
+        // Don't add url to templatedUrls if it has dynamic routes #29
         if (url && url.indexOf('/:') === -1) urls[url] = file
         return urls
       }, {})
