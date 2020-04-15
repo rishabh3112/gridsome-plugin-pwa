@@ -40,8 +40,7 @@ plugins:[
             backgroundColor: '#ffffff',
             icon: '', // must be provided like 'src/favicon.png'
             msTileImage: '',
-            gcmSenderId: '', //used for web push notifications
-
+            msTileColor: '#666600'
         }
     }
 ]

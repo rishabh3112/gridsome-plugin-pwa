@@ -60,13 +60,6 @@ const clientConfig = function (Vue, options, context) {
     })
   }
 
-  if (options.gcmSenderId) {
-    head.meta.push({
-      name: 'gcm_sender_id',
-      content: options.gcmSenderId
-    })
-  }
-
   head.meta.push({
     name: 'msapplication-TileColor',
     content: options.msTileColor
