@@ -41,7 +41,7 @@ plugins:[
             icon: '', // must be provided like 'src/favicon.png'
             msTileImage: '',
             msTileColor: '#666600',
-            gcmSenderId: '', //used for the web push notifications
+            gcmSenderId: '',
         }
     }
 ]
