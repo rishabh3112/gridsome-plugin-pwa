@@ -3,7 +3,7 @@ import { generateSW } from 'workbox-build'
 import fs from 'fs-extra'
 
 const appendToServiceWorker = async (config, options) => {
-    const skipWaitingPath = path.resolve(__dirname, '../utils/skip-wating.js')
+    const skipWaitingPath = path.resolve(__dirname, '../utils/skip-waiting.js')
     const skipWaiting = await fs.readFile(skipWaitingPath, 'utf8')
     const outPath = path.join(config.outputDir, options.serviceWorkerPath);
     await fs.writeFile(outPath, `\n${skipWaiting}`, { flag: 'a' })
