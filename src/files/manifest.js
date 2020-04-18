@@ -29,7 +29,7 @@ export const createManifest = async (context, config, queue, options) => {
         display: options.display,
         theme_color: options.themeColor,
         background_color: options.backgroundColor,
-        gcm_sender_id: (options.gcmSenderId? options.gcmSenderId : undefined),
+        gcm_sender_id: options.gcmSenderId,
         icons
     }, null, 2));
 }
