@@ -17,6 +17,7 @@ const clientConfig = function (Vue, options, context) {
         console.log('New content is downloading.')
       },
       updated (registration) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' });  
         console.log('New content is available; please refresh.')
       },
       offline () {
