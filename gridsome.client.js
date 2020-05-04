@@ -31,11 +31,11 @@ const clientConfig = function (Vue, options, context) {
 
   const iconsDir = 'assets/static/';
   const iconName = options.icon.split('/').slice(-1)[0];
-  const msTileImage = `${iconsDir}${iconName}-144x144.png`;
+  const msTileImage = `/${iconsDir}${iconName}-144x144.png`;
 
   head.link.push({
     rel: 'manifest',
-    href: options.manifestPath
+    href: options.manifestPath.replace('\\', '/')
   })
 
   if (options.svgFavicon) {
