@@ -38,6 +38,19 @@ const clientConfig = function (Vue, options, context) {
     href: options.manifestPath
   })
 
+  if (options.svgFavicon) {
+    head.link.push({
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: options.svgFavicon
+    });
+
+    head.link.push({
+      rel: 'alternate icon',
+      href: 'favicon.ico',
+    });
+  }
+
   if (options.appleMaskIcon && options.appleMaskIconColor) {
     head.link.push({
       rel: 'mask-icon',

@@ -56,12 +56,14 @@ plugins:[
             ]
             gcmSenderId: undefined,
 
+            // Standard Meta Tags
+            svgFavicon: 'src/favicon.svg', // Optional
+
             // Microsoft Windows Meta Tags
-            msTileImage: '',
             msTileColor: '#666600',
 
             // Apple MacOS Meta Tags
-            appleMaskIcon: 'src/favicon.svg' // Optional
+            appleMaskIcon: 'src/favicon.svg', // Optional
             appleMaskIconColor: '#666600',
         }
     }
