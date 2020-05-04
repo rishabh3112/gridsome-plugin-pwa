@@ -29,10 +29,22 @@ const clientConfig = function (Vue, options, context) {
     })
   }
 
+  const iconsDir = 'assets/static/';
+  const iconName = options.icon.split('/').slice(-1)[0];
+  const msTileImage = `${iconsDir}${iconName}-144x144.png`;
+
   head.link.push({
     rel: 'manifest',
     href: options.manifestPath
   })
+
+  if (options.appleMaskIcon && options.appleMaskIconColor) {
+    head.link.push({
+      rel: 'mask-icon',
+      href: options.appleMaskIcon,
+      color: options.appleMaskIconColor,
+    })
+  }
 
   head.meta.push({
     name: 'theme-color',
@@ -54,16 +66,21 @@ const clientConfig = function (Vue, options, context) {
     content: options.title
   })
 
-  if (options.msTileImage) {
+  head.meta.push({
+    name: 'application-name',
+    content: options.title
+  })
+
+  if (options.msTileColor) {
     head.meta.push({
-      name: 'msapplication-TileImage',
-      content: options.msTileImage
+      name: 'msapplication-TileColor',
+      content: options.msTileColor
     })
   }
-
+  
   head.meta.push({
-    name: 'msapplication-TileColor',
-    content: options.msTileColor
+    name: 'msapplication-TileImage',
+    content: msTileImage
   })
 }
 

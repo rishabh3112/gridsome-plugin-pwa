@@ -27,21 +27,42 @@ plugins:[
     {
         use: 'gridsome-plugin-pwa',
         options: {
+            // Service Worker Options
+            disableServiceWorker: true,
+            serviceWorkerPath: 'service-worker.js',
+            cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg,gif',
+
+            // Manifest Options (https://developer.mozilla.org/en-US/docs/Web/Manifest)
+            manifestPath: 'manifest.webmanifest',
             title: 'Gridsome',
+            shortName: 'Gridsome',
+            description: 'Gridsome is awesome!',
+            categories: ['education'],
+            lang: 'en-GB',
+            dir: 'auto',
             startUrl: '/',
             display: 'standalone',
             statusBarStyle: 'default',
-            manifestPath: 'manifest.json',
-            disableServiceWorker: true,
-            serviceWorkerPath: 'service-worker.js',
-            cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg',
-            shortName: 'Gridsome',
             themeColor: '#666600',
             backgroundColor: '#ffffff',
             icon: '', // must be provided like 'src/favicon.png'
+            maskableIcon: true, // The image has a safe border around it that can be cut away
+            screenshots: [
+                {
+                    src: 'src/screenshot1.png',
+                    sizes: '1280x720',
+                    type: 'image/png',
+                },
+            ]
+            gcmSenderId: undefined,
+
+            // Microsoft Windows Meta Tags
             msTileImage: '',
             msTileColor: '#666600',
-            gcmSenderId: undefined,
+
+            // Apple MacOS Meta Tags
+            appleMaskIcon: 'src/favicon.svg' // Optional
+            appleMaskIconColor: '#666600',
         }
     }
 ]

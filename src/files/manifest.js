@@ -14,21 +14,32 @@ export const createManifest = async (context, config, queue, options) => {
 
     const icons = [];
     await Promise.all(sizes.map((size) => {
-        const imagePath = path.join(iconsDir, rename(iconName, { suffix: '-' + size}))
+        const imagePath = path.join(iconsDir, rename(iconName, { suffix: `-${size}x${size}` }))
         const src = path.relative(config.outputDir, imagePath);
         const type = 'image/' + iconName.split('.').slice(-1)[0];
         const sizes = `${size}x${size}`;
-        icons.push({ src, type, sizes });
+        icons.push({ 
+            src,
+            type,
+            sizes,
+            purpose: options.maskableIcon ? 'maskable any' : 'any',
+        });
         return sharp(options.icon).resize(size, size).toFile(imagePath);
     }));
 
     await fs.outputFile(manifestDest, JSON.stringify({
         name: options.title,
         short_name: options.shortName,
+        description: options.description,
+        lang: options.lang,
+        dir: options.dir,
+        categories: options.categories,
         start_url: options.startUrl,
         display: options.display,
         theme_color: options.themeColor,
         background_color: options.backgroundColor,
+        screenshots: options.screenshots,
+        scope: options.scope,
         gcm_sender_id: options.gcmSenderId,
         icons
     }, null, 2));
