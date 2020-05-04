@@ -14,10 +14,10 @@ export const createManifest = async (context, config, queue, options) => {
 
     const icons = [];
     await Promise.all(sizes.map((size) => {
-        const imagePath = path.join(iconsDir, rename(iconName, { suffix: `-${size}x${size}` }))
+        const sizes = `${size}x${size}`;
+        const imagePath = path.join(iconsDir, rename(iconName, { suffix: `-${sizes}` }))
         const src = path.relative(config.outputDir, imagePath);
         const type = 'image/' + iconName.split('.').slice(-1)[0];
-        const sizes = `${size}x${size}`;
         icons.push({ 
             src,
             type,
