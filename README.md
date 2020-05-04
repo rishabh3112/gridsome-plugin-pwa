@@ -35,11 +35,11 @@ plugins:[
             // Manifest Options (https://developer.mozilla.org/en-US/docs/Web/Manifest)
             manifestPath: 'manifest.webmanifest',
             title: 'Gridsome',
-            shortName: 'Gridsome',
-            description: 'Gridsome is awesome!',
-            categories: ['education'],
-            lang: 'en-GB',
-            dir: 'auto',
+            shortName: 'Gridsome',              // Optional
+            description: 'Gridsome is awesome!',// Optional
+            categories: ['education'],          // Optional
+            lang: 'en-GB',                      // Optional
+            dir: 'auto',                        // Optional
             startUrl: '/',
             display: 'standalone',
             statusBarStyle: 'default',
@@ -47,7 +47,7 @@ plugins:[
             backgroundColor: '#ffffff',
             icon: '', // must be provided like 'src/favicon.png'
             maskableIcon: true, // The image has a safe border around it that can be cut away
-            screenshots: [
+            screenshots: [                      // Optional
                 {
                     src: 'src/screenshot1.png',
                     sizes: '1280x720',
@@ -57,14 +57,14 @@ plugins:[
             gcmSenderId: undefined,
 
             // Standard Meta Tags
-            svgFavicon: 'src/favicon.svg', // Optional
+            svgFavicon: 'src/favicon.svg',      // Optional
 
             // Microsoft Windows Meta Tags
-            msTileColor: '#666600',
+            msTileColor: '#666600',             // Optional
 
             // Apple MacOS Meta Tags
-            appleMaskIcon: 'src/favicon.svg', // Optional
-            appleMaskIconColor: '#666600',
+            appleMaskIcon: 'src/favicon.svg',   // Optional
+            appleMaskIconColor: '#666600',      // Optional
         }
     }
 ]
