@@ -1,0 +1,13 @@
+{
+  "name": "basic",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "gridsome": "^0.7.0",
+    "gridsome-plugin-pwa": "^0.0.17"
+  }
+}

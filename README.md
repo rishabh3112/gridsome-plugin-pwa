@@ -4,11 +4,11 @@
     </a>
     <h1 align="center">gridsome-plugin-pwa</h1>
     <p align="center"> A PWA plugin for gridsome </p>
-    <p align="center"><img alt="npm" src="https://img.shields.io/npm/dt/gridsome-plugin-pwa"></p>
+    <p align="center"><a href="https://npmjs.com/package/gridsome-plugin-pwa"><img src="https://badge.fury.io/js/gridsome-plugin-pwa.svg" alt="npm version"></a><img alt="npm" src="https://img.shields.io/npm/dt/gridsome-plugin-pwa"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/gridsome-plugin-pwa"></p>
 </p>
 
-
 ## Installation
+
 ```
 # For npm
 $ npm install gridsome-plugin-pwa
@@ -17,6 +17,7 @@ $ yarn add gridsome-plugin-pwa
 ```
 
 ## Usage
+
 Add `gridsome-plugin-pwa` to plugin array with following configurable options to `gridsome.config.js`
 
 > Defaults are mentioned below along side properties
@@ -48,4 +49,5 @@ plugins:[
 ```
 
 ## License (MIT)
-Open [LICENSE](./LICENSE) file for more info 
+
+Open [LICENSE](./LICENSE) file for more info
