@@ -41,7 +41,8 @@ const clientConfig = function (Vue, options, context) {
   if (options.svgFavicon) {
     var emptyIcon = head.link.find(x => x.rel === 'icon' && x.href === 'data:,');
     if (emptyIcon) {
-      head.link.pop(emptyIcon);
+      const index = head.link.indexOf(emptyIcon);
+      head.link.splice(index, 1);
     }
 
     head.link.push({

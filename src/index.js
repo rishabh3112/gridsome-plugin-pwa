@@ -30,6 +30,7 @@ function Plugin (api, options) {
     appleMaskIcon: options.appleMaskIcon,
     appleMaskIconColor: options.appleMaskIconColor,
     msTileColor: options.msTileColor,
+    svgFavicon: options.svgFavicon,
   })
 }
   
