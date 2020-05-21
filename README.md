@@ -31,6 +31,7 @@ plugins:[
             disableServiceWorker: true,
             serviceWorkerPath: 'service-worker.js',
             cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg,gif',
+            disableTemplatedUrls: false,       // Optional
 
             // Manifest Options (https://developer.mozilla.org/en-US/docs/Web/Manifest)
             manifestPath: 'manifest.json',
