@@ -38,7 +38,7 @@ Plugin.defaultOptions = () => ({
   startUrl: '/',
   display: 'standalone',
   statusBarStyle: 'default',
-  manifestPath: 'manifest.webmanifest',
+  manifestPath: 'manifest.json',
   disableServiceWorker: true,
   serviceWorkerPath: 'service-worker.js',
   cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg,gif',
