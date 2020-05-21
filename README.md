@@ -33,20 +33,20 @@ plugins:[
             cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg,gif',
 
             // Manifest Options (https://developer.mozilla.org/en-US/docs/Web/Manifest)
-            manifestPath: 'manifest.webmanifest',
+            manifestPath: 'manifest.json',
             title: 'Gridsome',
-            shortName: 'Gridsome',              // Optional
-            description: 'Gridsome is awesome!',// Optional
-            categories: ['education'],          // Optional
-            lang: 'en-GB',                      // Optional
-            dir: 'auto',                        // Optional
             startUrl: '/',
             display: 'standalone',
             statusBarStyle: 'default',
             themeColor: '#666600',
             backgroundColor: '#ffffff',
-            icon: '', // must be provided like 'src/favicon.png'
-            maskableIcon: true, // The image has a safe border around it that can be cut away
+            icon: '',
+            shortName: 'Gridsome',              // Optional
+            description: 'Gridsome is awesome!',// Optional
+            categories: ['education'],          // Optional
+            lang: 'en-GB',                      // Optional
+            dir: 'auto',                        // Optional
+            maskableIcon: true,                 // Optional
             screenshots: [                      // Optional
                 {
                     src: 'src/screenshot1.png',
@@ -54,7 +54,7 @@ plugins:[
                     type: 'image/png',
                 },
             ]
-            gcmSenderId: undefined,
+            gcmSenderId: undefined,             // Optional
 
             // Standard Meta Tags
             svgFavicon: 'src/favicon.svg',      // Optional
