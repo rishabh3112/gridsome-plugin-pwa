@@ -25,7 +25,12 @@ function Plugin (api, options) {
     serviceWorkerPath: path.join(pathPrefix, options.serviceWorkerPath),
     manifestPath: path.join(pathPrefix, options.manifestPath),
     statusBarStyle: options.statusBarStyle,
-    themeColor: options.themeColor
+    themeColor: options.themeColor,
+    icon: options.icon,
+    appleMaskIcon: options.appleMaskIcon,
+    appleMaskIconColor: options.appleMaskIconColor,
+    msTileColor: options.msTileColor,
+    svgFavicon: options.svgFavicon,
   })
 }
   
@@ -37,7 +42,7 @@ Plugin.defaultOptions = () => ({
   manifestPath: 'manifest.json',
   disableServiceWorker: true,
   serviceWorkerPath: 'service-worker.js',
-  cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg',
+  cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg,gif',
   shortName: 'Gridsome',
   themeColor: '#666600',
   backgroundColor: '#ffffff',
