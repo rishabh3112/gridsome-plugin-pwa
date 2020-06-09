@@ -4,7 +4,7 @@
     </a>
     <h1 align="center">gridsome-plugin-pwa</h1>
     <p align="center"> A PWA plugin for gridsome </p>
-    <p align="center"><a href="https://npmjs.com/package/gridsome-plugin-pwa"><img src="https://badge.fury.io/js/gridsome-plugin-pwa.svg" alt="npm version"></a><img alt="npm" src="https://img.shields.io/npm/dt/gridsome-plugin-pwa"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/gridsome-plugin-pwa"></p>
+    <p align="center"><a href="https://npmjs.com/package/gridsome-plugin-pwa"><img src="https://badge.fury.io/js/gridsome-plugin-pwa.svg" alt="npm version"></a> <img alt="npm" src="https://img.shields.io/npm/dt/gridsome-plugin-pwa"> <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/gridsome-plugin-pwa"></p>
 </p>
 
 ## Installation
@@ -20,7 +20,7 @@ $ yarn add gridsome-plugin-pwa
 
 Add `gridsome-plugin-pwa` to plugin array with following configurable options to `gridsome.config.js`
 
-> Defaults are mentioned below along side properties
+> Defaults for required fields and example for optional fields values are mentioned below along side properties
 
 ```js
 ...
@@ -29,7 +29,7 @@ plugins:[
         use: 'gridsome-plugin-pwa',
         options: {
             // Service Worker Options
-            disableServiceWorker: true,
+            disableServiceWorker: false,
             serviceWorkerPath: 'service-worker.js',
             cachedFileTypes: 'js,json,css,html,png,jpg,jpeg,svg,gif',
             disableTemplatedUrls: false,       // Optional
