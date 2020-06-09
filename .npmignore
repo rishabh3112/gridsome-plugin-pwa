@@ -1,2 +1,5 @@
 src/
 node_modules/
+examples/
+.vscode/
+.codesandbox/
