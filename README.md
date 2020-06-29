@@ -55,7 +55,7 @@ plugins:[
                     sizes: '1280x720',
                     type: 'image/png',
                 },
-            ]
+            ],
             gcmSenderId: undefined,             // Optional
 
             // Standard Meta Tags
