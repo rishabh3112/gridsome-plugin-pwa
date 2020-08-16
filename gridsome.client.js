@@ -1,3 +1,4 @@
+const { parse } = require('path');
 const { register } = require('register-service-worker');
 
 const clientConfig = function (Vue, options, context) {
@@ -30,8 +31,8 @@ const clientConfig = function (Vue, options, context) {
   }
 
   const iconsDir = 'assets/static/';
-  const iconName = options.icon.split('/').slice(-1)[0];
-  const msTileImage = `/${iconsDir}${iconName}-144x144.png`;
+  const iconPathParsed = parse(options.icon);
+  const msTileImage = `/${iconsDir}${iconPathParsed.name}-144x144${iconPathParsed.ext}`;
 
   head.link.push({
     rel: 'manifest',
