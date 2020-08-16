@@ -1,4 +1,3 @@
-const { parse } = require('path');
 const { register } = require('register-service-worker');
 
 const clientConfig = function (Vue, options, context) {
@@ -30,9 +29,17 @@ const clientConfig = function (Vue, options, context) {
     })
   }
 
-  const iconsDir = 'assets/static/';
-  const iconPathParsed = parse(options.icon);
-  const msTileImage = `/${iconsDir}${iconPathParsed.name}-144x144${iconPathParsed.ext}`;
+  const iconsDir = '/assets/static/';
+  const iconName = options.icon.split('/').slice(-1)[0];
+  const iconNameDotIdx = iconName.lastIndexOf('.');
+
+  var msTileImage = iconsDir;
+
+  if(iconNameDotIdx > -1) {
+    msTileImage += `${iconName.substring(0, iconNameDotIdx)}-144x144${iconName.substring(iconNameDotIdx)}`
+  } else {
+    msTileImage += `${iconName}-144x144`
+  }
 
   head.link.push({
     rel: 'manifest',
