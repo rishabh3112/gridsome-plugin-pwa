@@ -56,6 +56,15 @@ plugins:[
                     type: 'image/png',
                 },
             ],
+            shortcuts: [                        // Optional
+                {
+                    name: "View Subscriptions",
+                    short_name: "Subscriptions",
+                    description: "View the list of podcasts you listen to",
+                    url: "/subscriptions?utm_source=homescreen",
+                    icons: [{ src: "/icons/subscriptions.png", sizes: "192x192" }]
+                }
+            ],
             gcmSenderId: undefined,             // Optional
 
             // Standard Meta Tags

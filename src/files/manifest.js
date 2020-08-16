@@ -39,6 +39,7 @@ export const createManifest = async (context, config, queue, options) => {
         theme_color: options.themeColor,
         background_color: options.backgroundColor,
         screenshots: options.screenshots,
+        shortcuts: options.shortcuts,
         scope: options.scope,
         gcm_sender_id: options.gcmSenderId,
         icons
