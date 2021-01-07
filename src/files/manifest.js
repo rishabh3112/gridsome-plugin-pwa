@@ -5,7 +5,7 @@ import rename from 'rename'
 
 export const createManifest = async (context, config, queue, options) => {
     const manifestDest = path.join(config.outputDir, options.manifestPath);
-    const iconsDir = path.join(config.outputDir, 'assets/static/');
+    const iconsDir = path.join(config.outputDir, options.staticAssetsDir);
     const iconName = options.icon.split('/').slice(-1)[0];
 
     // Generate all size images from options.icon
