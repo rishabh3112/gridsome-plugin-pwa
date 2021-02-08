@@ -30,7 +30,7 @@ const clientConfig = function (Vue, options, context) {
     })
   }
 
-  const iconsDir = 'assets/static/';
+  const iconsDir = options.staticAssetsDir;
   const iconPathParsed = parse(options.icon);
   const msTileImage = `/${iconsDir}${iconPathParsed.name}-144x144${iconPathParsed.ext}`;
 
