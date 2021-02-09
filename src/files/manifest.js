@@ -7,6 +7,9 @@ export const createManifest = async (context, config, queue, options) => {
     const manifestDest = path.join(config.outputDir, options.manifestPath);
     const iconsDir = path.join(config.outputDir, options.staticAssetsDir);
     const iconName = options.icon.split('/').slice(-1)[0];
+    const maskableIconName = typeof options.maskableIcon === 'string' 
+        ? options.maskableIcon.split('/').slice(-1)[0] 
+        : null
 
     // Generate all size images from options.icon
     const sizes = [512, 384, 192, 180, 152, 144, 128, 120, 96, 72, 48, 16];
@@ -15,16 +18,37 @@ export const createManifest = async (context, config, queue, options) => {
     const icons = [];
     await Promise.all(sizes.map((size) => {
         const sizes = `${size}x${size}`;
-        const imagePath = path.join(iconsDir, rename(iconName, { suffix: `-${sizes}` }))
-        const src = path.relative(config.outputDir, imagePath);
-        const type = 'image/' + iconName.split('.').slice(-1)[0];
-        icons.push({ 
-            src,
-            type,
-            sizes,
-            purpose: options.maskableIcon ? 'maskable any' : 'any',
-        });
-        return sharp(options.icon).resize(size, size).toFile(imagePath);
+
+        // for { icon }
+        let imagePath = path.join(iconsDir, rename(iconName, { suffix: `-${sizes}` }))
+        let src = path.relative(config.outputDir, imagePath);
+        let type = 'image/' + iconName.split('.').slice(-1)[0];
+        let purpose = 'any'
+
+        // maskableIcon can now be boolean or an icon path. 
+        // if it is true, or is the same icon file as standard icon, set 'maskable any' 
+        if (options.maskableIcon === true || options.maskableIcon === options.icon) {
+            purpose = 'maskable any'
+        } 
+
+        // add and process { icon }
+        icons.push({src, type, sizes, purpose });
+        const results = [sharp(options.icon).resize(size, size).toFile(imagePath)]
+
+        // if maskableIcon is a string, then we need to process it as a separate maskable icon
+        if (options.maskableIcon && typeof options.maskableIcon === 'string') {
+            imagePath = path.join(iconsDir, rename(maskableIconName, { suffix: `-maskable-${sizes}` }))
+            src = path.relative(config.outputDir, imagePath);
+            type = 'image/' + iconName.split('.').slice(-1)[0];
+            purpose = 'maskable'
+
+            // add and process { maskableIcon }
+            icons.push({src, type, sizes, purpose });
+            results.push(sharp(options.maskableIconName).resize(size, size).toFile(imagePath))
+        }
+
+        // always return a single promise
+        return Promise.all(results)
     }));
 
     await fs.outputFile(manifestDest, JSON.stringify({

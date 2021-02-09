@@ -42,13 +42,18 @@ plugins:[
             statusBarStyle: 'default',
             themeColor: '#666600',
             backgroundColor: '#ffffff',
+
+            // icon should be a path to the static folder i.e. '/static/icon.png'
             icon: '',
+
+            // set {maskableIcon: true} to use the same icon (this will set
+            // {purpose:  'maskable any'}), or specify a different icon path
+            maskableIcon: true,                 // Optional
             shortName: 'Gridsome',              // Optional
             description: 'Gridsome is awesome!',// Optional
             categories: ['education'],          // Optional
             lang: 'en-GB',                      // Optional
             dir: 'auto',                        // Optional
-            maskableIcon: true,                 // Optional
             screenshots: [                      // Optional
                 {
                     src: 'src/screenshot1.png',
