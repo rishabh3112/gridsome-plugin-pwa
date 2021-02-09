@@ -32,18 +32,18 @@ export const createManifest = async (context, config, queue, options) => {
         } 
 
         // add and process { icon }
-        icons.push({src, type, sizes, purpose });
+        icons.push({src, type, sizes, purpose});
         const results = [sharp(options.icon).resize(size, size).toFile(imagePath)]
 
         // if maskableIcon is a string, then we need to process it as a separate maskable icon
         if (options.maskableIcon && typeof options.maskableIcon === 'string') {
             imagePath = path.join(iconsDir, rename(maskableIconName, { suffix: `-maskable-${sizes}` }))
             src = path.relative(config.outputDir, imagePath);
-            type = 'image/' + iconName.split('.').slice(-1)[0];
+            type = 'image/' + maskableIconName.split('.').slice(-1)[0];
             purpose = 'maskable'
 
             // add and process { maskableIcon }
-            icons.push({src, type, sizes, purpose });
+            icons.push({src, type, sizes, purpose});
             results.push(sharp(options.maskableIconName).resize(size, size).toFile(imagePath))
         }
 
