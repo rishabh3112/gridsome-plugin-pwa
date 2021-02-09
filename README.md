@@ -43,7 +43,7 @@ plugins:[
             themeColor: '#666600',
             backgroundColor: '#ffffff',
 
-            // icon should be a path to the static folder i.e. '/static/icon.png'
+            // icon should be a path to the static folder i.e. 'static/icon.png'
             icon: '',
 
             // set {maskableIcon: true} to use the same icon (this will set
