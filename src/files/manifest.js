@@ -27,8 +27,10 @@ export const createManifest = async (context, config, queue, options) => {
 
         // maskableIcon can now be boolean or an icon path. 
         // if it is true, or is the same icon file as standard icon, set 'maskable any' 
+        // also revert maskableIconName to null, as we won't need to process separately
         if (options.maskableIcon === true || options.maskableIcon === options.icon) {
             purpose = 'maskable any'
+            maskableIconName = null
         } 
 
         // add and process { icon }
@@ -36,7 +38,7 @@ export const createManifest = async (context, config, queue, options) => {
         const results = [sharp(options.icon).resize(size, size).toFile(imagePath)]
 
         // if maskableIcon is a string, then we need to process it as a separate maskable icon
-        if (options.maskableIcon && typeof options.maskableIcon === 'string') {
+        if (maskableIconName) {
             imagePath = path.join(iconsDir, rename(maskableIconName, { suffix: `-maskable-${sizes}` }))
             src = path.relative(config.outputDir, imagePath);
             type = 'image/' + maskableIconName.split('.').slice(-1)[0];
