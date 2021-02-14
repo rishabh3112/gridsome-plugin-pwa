@@ -7,7 +7,7 @@ export const createManifest = async (context, config, queue, options) => {
     const manifestDest = path.join(config.outputDir, options.manifestPath);
     const iconsDir = path.join(config.outputDir, options.staticAssetsDir);
     const iconName = options.icon.split('/').slice(-1)[0];
-    const maskableIconName = typeof options.maskableIcon === 'string' 
+    let maskableIconName = typeof options.maskableIcon === 'string' 
         ? options.maskableIcon.split('/').slice(-1)[0] 
         : null
 
@@ -46,7 +46,7 @@ export const createManifest = async (context, config, queue, options) => {
 
             // add and process { maskableIcon }
             icons.push({src, type, sizes, purpose});
-            results.push(sharp(options.maskableIconName).resize(size, size).toFile(imagePath))
+            results.push(sharp(options.maskableIcon).resize(size, size).toFile(imagePath))
         }
 
         // always return a single promise
