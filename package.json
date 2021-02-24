@@ -25,7 +25,7 @@
     "fs-extra": "^8.1.0",
     "register-service-worker": "^1.6.2",
     "rename": "^1.0.4",
-    "workbox-build": "^5.1.2"
+    "workbox-build": "^6.1.1"
   },
   "peerDependencies": {
     "sharp": "0.25.x"
