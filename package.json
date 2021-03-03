@@ -1,6 +1,6 @@
 {
   "name": "gridsome-plugin-pwa",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "PWA plugin for Gridsome",
   "main": "index.js",
   "author": "rishabh3112",
@@ -29,5 +29,12 @@
   },
   "peerDependencies": {
     "sharp": "0.25.x"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Bruno de Araújo Alves",
+      "email": "me@baraus.dev",
+      "url": "https://baraus.dev"
+    }
+  ]
 }
