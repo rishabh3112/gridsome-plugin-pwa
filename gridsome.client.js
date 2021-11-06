@@ -54,6 +54,7 @@ const clientConfig = function (Vue, options, context) {
 
     head.link.push({
       rel: 'alternate icon',
+      sizes: 'any',
       href: 'favicon.ico',
     });
   }
