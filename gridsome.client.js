@@ -1,37 +1,37 @@
-const { parse } = require('path');
+const { basename, extname } = require('path');
 const { register } = require('register-service-worker');
 
 const clientConfig = function (Vue, options, context) {
-  let {head, isClient} = context;
+  let { head, isClient } = context;
   if (process.env.NODE_ENV === 'production' && isClient) {
     register(options.serviceWorkerPath, {
-      ready () {
+      ready() {
         console.log('Service worker is active.')
       },
-      registered (registration) {
+      registered(registration) {
         console.log('Service worker has been registered.')
       },
-      cached (registration) {
+      cached(registration) {
         console.log('Content has been cached for offline use.')
       },
-      updatefound (registration) {
+      updatefound(registration) {
         console.log('New content is downloading.')
       },
-      updated (registration) {
-        registration.waiting.postMessage({ type: 'SKIP_WAITING' });  
+      updated(registration) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
         console.log('New content is available; please refresh.')
       },
-      offline () {
+      offline() {
         console.log('No internet connection found. App is running in offline mode.')
       },
-      error (error) {
+      error(error) {
         console.error('Error during service worker registration:', error)
       }
     })
   }
 
   const iconsDir = options.staticAssetsDir;
-  const iconPathParsed = parse(options.icon);
+  const iconPathParsed = { name: basename(options.icon), ext: extname(options.icon) };
   const msTileImage = `/${iconsDir}${iconPathParsed.name}-144x144${iconPathParsed.ext}`;
 
   head.link.push({
@@ -98,7 +98,7 @@ const clientConfig = function (Vue, options, context) {
       content: options.msTileColor
     })
   }
-  
+
   head.meta.push({
     name: 'msapplication-TileImage',
     content: msTileImage
