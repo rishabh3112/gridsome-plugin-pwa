@@ -54,6 +54,7 @@ Plugin.defaultOptions = () => ({
   backgroundColor: "#ffffff",
   icon: "",
   shortcuts: [],
+  screenshots: [],
   msTileImage: "",
   msTileColor: "#666600",
 });
