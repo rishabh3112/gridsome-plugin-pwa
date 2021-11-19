@@ -13,7 +13,7 @@ export const createServiceWorker = async (context, config, queue, options) => {
     if (options.disableServiceWorker) return false;
     const serviceWorkerPath = path.join(config.outputDir, options.serviceWorkerPath)
   
-    await generateSW({
+    const swConfig = {
       modifyURLPrefix: { '' : config.pathPrefix + '/' || ''},
       swDest: serviceWorkerPath,
       globDirectory: config.outputDir,
@@ -30,7 +30,11 @@ export const createServiceWorker = async (context, config, queue, options) => {
 
         return urls
       }, {})
-    })
+    };
+    if (config.modifyServiceWorkerConfig) {
+      config.modifyServiceWorkerConfig(swConfig);
+    }
+    await generateSW(swConfig);
 
     await appendToServiceWorker(config, options);
     return true;
