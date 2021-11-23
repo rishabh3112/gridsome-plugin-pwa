@@ -31,8 +31,8 @@ export const createServiceWorker = async (context, config, queue, options) => {
         return urls
       }, {})
     };
-    if (config.modifyServiceWorkerConfig) {
-      config.modifyServiceWorkerConfig(swConfig);
+    if (options.modifyServiceWorkerConfig) {
+      options.modifyServiceWorkerConfig(swConfig);
     }
     await generateSW(swConfig);
 
