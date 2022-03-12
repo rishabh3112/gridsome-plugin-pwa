@@ -36,6 +36,7 @@ plugins:[
 
             // Manifest Options (https://developer.mozilla.org/en-US/docs/Web/Manifest)
             manifestPath: 'manifest.json',
+            id: "Gridsome",
             title: 'Gridsome',
             startUrl: '/',
             display: 'standalone',

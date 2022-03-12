@@ -10,6 +10,7 @@ module.exports = {
     {
       use: "gridsome-plugin-pwa",
       options: {
+        id: "gridsome-plugin-pwa",
         title: "Gridsome",
         startUrl: "/",
         display: "standalone",

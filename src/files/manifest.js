@@ -54,6 +54,7 @@ export const createManifest = async (context, config, queue, options) => {
     }));
 
     await fs.outputFile(manifestDest, JSON.stringify({
+        id: options.id,
         name: options.title,
         short_name: options.shortName,
         description: options.description,
